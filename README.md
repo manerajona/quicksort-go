@@ -12,7 +12,7 @@ Quick sort is basically based on divide and conquer method. It divides the array
 
 ## Space Complexity
 
-O(log(n))
+- Worst case:  O(log(n))
 
 
 ## Build & Run
