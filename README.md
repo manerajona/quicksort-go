@@ -14,6 +14,8 @@ Quick sort is basically based on divide and conquer method. It divides the array
 
 - Worst case:  O(log(n))
 
+### Graph
+![Build Status](https://github.com/manerajona/quicksort-go/blob/master/Big%20O%20quicksort.png)
 
 ## Build & Run
 
