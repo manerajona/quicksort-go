@@ -4,8 +4,24 @@ Quick sort is basically based on divide and conquer method. It divides the array
     
 ## Time Complexity
 
-- Best case: O(nlogn)
+- Best case:  O(n log(n))
 
-- Worst case: O(n2)
+- Average case:  O(n log(n))
 
-- Average case: O(nlogn)
+- Worst case:  O(n*2)
+
+## Space Complexity
+
+O(log(n))
+
+
+## Build & Run
+
+For building:
+```sh
+$ go build main.go
+```
+For running:
+```sh
+$ go run main.go
+```
