@@ -17,12 +17,11 @@ func quicksort(arr []int, left int, right int) []int {
 
 func partition(arr []int, left int, right int) int {
 	pivot := arr[right]
-	i := left - 1 // esto arranca siendo -1
+	i := left - 1
 
 	for j := left; j < right; j++ {
 		if arr[j] <= pivot {
 			i++
-
 			temp := arr[i]
 			arr[i] = arr[j]
 			arr[j] = temp
