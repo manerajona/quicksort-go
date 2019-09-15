@@ -1,43 +1,44 @@
 package main
 
 import (
-  "fmt"
-  "reflect"
+	"fmt"
+	"reflect"
 )
 
 func quicksort(arr []int, left int, right int) []int {
-  if left < right {
-    index := partition(arr, left, right)
+	if left < right {
+		index := partition(arr, left, right)
 
-    quicksort(arr, left, index - 1)
-    return quicksort(arr, index + 1, right)
-  }
-  return nil
+		quicksort(arr, left, index-1)
+		quicksort(arr, index+1, right)
+	}
+	return arr
 }
 
 func partition(arr []int, left int, right int) int {
-  pivot := arr[right]
-  i := left - 1
+	pivot := arr[right]
+	i := left - 1 // esto arranca siendo -1
 
-  for j := left; j < right; j++ {
-    if arr[j] <= pivot {
-      i++
-    }
-    temp := arr[i]
-    arr[i] = arr[j]
-    arr[j] =  temp
-  }
-  temp := arr[i + 1]
-  arr[i + 1] = arr[right]
-  arr[right] = temp
+	for j := left; j < right; j++ {
+		if arr[j] <= pivot {
+			i++
 
-  return i + 1
+			temp := arr[i]
+			arr[i] = arr[j]
+			arr[j] = temp
+		}
+	}
+	temp := arr[i+1]
+	arr[i+1] = arr[right]
+	arr[right] = temp
+
+	return i + 1
 }
 
 var testData = []struct {
-	input []int
+	input          []int
 	expectedOutput []int
-  left, right int
+	left, right    int
 }{
 	{[]int{}, []int{}, 0, 0},
 	{[]int{42}, []int{42}, 0, 0},
@@ -46,12 +47,13 @@ var testData = []struct {
 }
 
 func main() {
-  for _, testCase := range testData {
-    actual := quicksort(testCase.input, testCase.left, testCase.right)
-    expected := testCase.expectedOutput
+	for _, testCase := range testData {
+		actual := quicksort(testCase.input, testCase.left, testCase.right)
+		expected := testCase.expectedOutput
+		fmt.Printf("Quicksorted : %v \n", actual)
 
-    if !reflect.DeepEqual(actual, expected) {
-      fmt.Printf("%v != %v\n", actual, expected)
-    }
-  }
+		if !reflect.DeepEqual(actual, expected) {
+			fmt.Printf("%v != %v\n", actual, expected)
+		}
+	}
 }
